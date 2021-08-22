@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="grid-container">
+    <div class="grid-child">
+        <div style="background-color: rgb(205, 250, 146);">
+            <dev class="container">
+                <div class="p-2 m-4 card border-primary">
+                    <div class="mx-auto">
+                        <form action="/elasticity" method="POST">{% csrf_token %}
+                            <div class="form-group">
+                                <label for="">Modulus of elasticity of matrix phase</label>
+                                <input type="number" name="inp1" id="" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Volume fraction of matrix</label>
+                                <input type="number" name="inp2" id="" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Modulus of elasticity of fiber</label>
+                                <input type="number" name="inp3" id="" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Volume fraction of fiber</label>
+                                <input type="number" name="inp4" id="" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-sm btn-info" type="submit" value="Modulus of elasticity">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </dev>
+        </div>
+    </div>
+
+    {% if ld %}
+    <div class="grid-child">
+        <div style="background-color: rgb(224, 241, 224);">
+            <dev class="container">
+                <div class="p-2 m-4">
+                    <div class="mx-auto">
+                        <div class="card border-primary">
+                            <div class="card-body">
+                                <p class="card-text">Modulus of elasticity of matrix phase : {{inp1}}</p>
+                                <p class="card-text">Volume fraction of matrix : {{inp2}}</p>
+                                <p class="card-text">Modulus of elasticity of fiber : {{inp3}}</p>
+                                <p class="card-text">Volume fraction of fiber : {{inp4}}</p>
+                                <h4 class="card-title">Modulus of elasticity in the longitudinal direction : {{ld}}</h4>
+                                <h4 class="card-title">Modulus of elasticity in the transverse direction : {{td}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dev>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

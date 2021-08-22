@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="grid-container">
+    <div class="grid-child">
+        <div style="background-color: rgb(205, 250, 146);">
+            <dev class="container">
+                <div class="p-2 m-4 card border-primary">
+                    <div class="mx-auto">
+                        <form action="/critical_fiber_length" method="POST">{% csrf_token %}
+                            <div class="form-group">
+                                <label for="">Ultimate Tensile Strength of the fibre in N/mm^2</label>
+                                <input type="number" name="inp1" id="" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Diameter of fiber in mm</label>
+                                <input type="number" name="inp2" id="" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Shear yield strength of the matrix in N/mm^2</label>
+                                <input type="number" name="inp3" id="" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <label for="">length of the available fiber in mm</label>
+                                <input type="number" name="inp4" id="" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-sm btn-info" type="submit" value="Critical fiber length">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </dev>
+        </div>
+    </div>
+
+    {% if cfl %}
+    <div class="grid-child">
+        <div style="background-color: rgb(224, 241, 224);">
+            <dev class="container">
+                <div class="p-2 m-4">
+                    <div class="mx-auto">
+                        <div class="card border-primary">
+                            <div class="card-body">
+                                <p class="card-text">Ultimate Tensile Strength of the fibre in N/mm^2 : {{inp1}}</p>
+                                <p class="card-text">Diameter of fiber in mm : {{inp2}}</p>
+                                <p class="card-text">Shear yield strength of the matrix in N/mm^2 : {{inp3}}</p>
+                                <p class="card-text">length of the available fiber in mm : {{inp4}}</p>
+                                <h4 class="card-title">Critical fiber length : {{cfl}}</h4>
+                                <h4 class="card-title">The fiber chosen is {{ic}} fiber</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dev>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

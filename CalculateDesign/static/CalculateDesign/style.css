@@ -1,0 +1,14 @@
+body {
+    background: white url("backgroundImage.jpg");
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 10fr 10fr;
+    grid-gap: 20px;
+}
